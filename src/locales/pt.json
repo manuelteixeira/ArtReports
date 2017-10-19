@@ -1,0 +1,9 @@
+{
+  "login": {
+    "username": "Nome de utilizador",
+    "password": "Palavra-passe",
+    "email": "E-mail",
+    "login": "Entrar",
+    "clear": "Limpar"
+  }
+}

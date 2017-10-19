@@ -4,7 +4,7 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="./assets/logo.png" alt="2021 Art Reports">
       <router-view></router-view>
     </main>
   </div>
@@ -30,7 +30,8 @@ body {
 
 main {
   text-align: center;
-  margin-top: 40px;
+  padding-top: 40px;
+  background: #000000;
 }
 
 header {
