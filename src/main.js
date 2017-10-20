@@ -3,13 +3,17 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import VueI18n from 'vue-i18n';
+import VueFire from 'vuefire';
 import App from './App';
 import router from './router';
+import store from './store';
 
+// #region Vuetify
 import('../node_modules/vuetify/dist/vuetify.min.css');
 Vue.use(Vuetify);
+// #endregion
 
-
+// #region locales
 Vue.use(VueI18n);
 
 // Get locales
@@ -24,6 +28,11 @@ const i18n = new VueI18n({
     en,
   },
 });
+// #endregion
+
+// #region VueFire
+Vue.use(VueFire);
+// #endregion
 
 Vue.config.productionTip = false;
 
@@ -32,6 +41,7 @@ new Vue({
   el: '#app',
   router,
   i18n,
+  store,
   template: '<App/>',
   components: { App },
 });
