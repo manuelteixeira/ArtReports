@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
     <main>
-      <img src="./assets/logo.png" alt="2021 Art Reports">
       <router-view></router-view>
     </main>
   </div>
@@ -32,6 +28,7 @@ main {
   text-align: center;
   padding-top: 40px;
   background: #000000;
+  height: 100%;
 }
 
 header {

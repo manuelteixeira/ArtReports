@@ -1,37 +1,36 @@
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+/* eslint no-param-reassign:
+   ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }] */
+
 import firebase from '@/service/firebase';
 
 const state = {
-  user: {},
+  user: {
+    uid: '',
+    email: '',
+  },
 };
 
 // getters
 const getters = {
-  // eslint-disable-next-line no-shadow
   user: state => state.user,
 };
 
 // actions
 const actions = {
   login({ commit }, payload) {
-    console.log(payload.email);
     firebase.auth.signInWithEmailAndPassword(payload.email, payload.password)
       .then(
-        user => commit('setUser', user.uid),
+        user => commit('setUser', user),
       );
-    // shop.buyProducts(
-    //   products,
-    //   () => commit(types.CHECKOUT_SUCCESS),
-    //   () => commit(types.CHECKOUT_FAILURE, { savedCartItems })
-    // )
   },
 };
 
 // mutations
 const mutations = {
-  // eslint-disable-next-line no-shadow
   setUser(state, payload) {
-    // eslint-disable-next-line no-param-reassign
-    state.user = payload;
+    state.user.uid = payload.uid;
+    state.user.email = payload.email;
   },
 };
 

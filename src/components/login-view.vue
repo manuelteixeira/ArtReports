@@ -1,26 +1,45 @@
 
 <template>
-  <v-form class="pa-4" ref="form" lazy-validation>
+  <v-container>
+    <v-layout row>
+      <v-flex xs12>
+        <!-- Logo -->
+        <img src="../assets/logo.png" alt="2021 Art Reports">
+      </v-flex>
+    </v-layout>
+    <v-layout row>
+      <v-flex>
+        <!-- Login form -->
+        <v-form class="pa-4" ref="form" lazy-validation>
+          <!-- Email input -->
+          <v-text-field class="grey--text"
+                        :label="$t('login.email')"
+                        v-model="user.email"
+                        required>
+          </v-text-field>
 
-    <div style="color: red">{{ test }}</div>
+          <!-- Password -->
+          <v-text-field class="grey--text"
+                        :label="$t('login.password')"
+                        v-model="user.password"
+                        required>
+          </v-text-field>
 
-    <!-- Email input -->
-    <v-text-field class="grey--text" :label="$t('login.email')" v-model="user.email" required>
-    </v-text-field>
+          <!-- Buttons -->
+          <v-btn class="grey--text"
+                 @click="submit">
+            {{ $t('login.login') }}
+          </v-btn>
+          <v-btn class="grey--text"
+                @click="clearForm">
+            {{ $t('login.clear') }}
+          </v-btn>
 
-    <v-text-field class="grey--text" :label="$t('login.password')" v-model="user.password" required>
-    </v-text-field>
+        </v-form>
+      </v-flex>
+    </v-layout>
+  </v-container>
 
-    <!-- Button -->
-    <v-btn class="grey--text" @click="submit">
-      {{ $t('login.login') }}
-    </v-btn>
-    <v-btn class="grey--text">
-      {{ $t('login.clear') }}
-    </v-btn>
-
-
-  </v-form>
 </template>
 
 <script>
@@ -49,6 +68,10 @@ export default {
 
     submit() {
       this.login(this.user);
+    },
+
+    clearForm() {
+      this.$refs.form.reset();
     },
   },
 };
